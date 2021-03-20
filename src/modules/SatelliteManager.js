@@ -23,7 +23,7 @@ export class SatelliteManager {
 
   addFromTleUrl(url, tags) {
     fetch(url, {
-      mode: "no-cors",
+      //mode: "no-cors",
     })
       .then((response) => {
         if (!response.ok) {

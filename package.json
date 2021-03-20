@@ -63,7 +63,7 @@
     "rimraf": "^3.0.2",
     "script-loader": "^0.7.2",
     "size-plugin": "^2.0.1",
-    "strip-pragma-loader": "^1.0.0",
+    "strip-pragma-loader": "github:4m1g0/strip-pragma-loader",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "vue-loader": "^15.9.6",

@@ -14,6 +14,21 @@ export class CesiumController {
     this.minimalUI = DeviceDetect.inIframe() || DeviceDetect.isIos();
     this.minimalUIAtStartup = DeviceDetect.inIframe();
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const gsParam = urlParams.get('gs');
+    const gs = gsParam.split(",");
+    console.log(gs[0] + ' ' + gs[1])
+
+    var west = gs[1] - 10;
+    var south = gs[0] - 10;
+    var east = gs[1] + 10;
+    var north = gs[0] + 10;
+
+    var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
+
+    Cesium.Camera.DEFAULT_VIEW_FACTOR = 1;
+    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = rectangle;
+
     this.viewer = new Cesium.Viewer("cesiumContainer", {
       animation: !this.minimalUI,
       baseLayerPicker: false,
@@ -37,7 +52,7 @@ export class CesiumController {
 
     // Cesium default settings
     this.viewer.clock.shouldAnimate = true;
-    this.viewer.scene.globe.enableLighting = true;
+    this.viewer.scene.globe.enableLighting = false;
     this.viewer.scene.highDynamicRange = true;
     this.viewer.scene.maximumRenderTimeChange = 1 / 30;
     this.viewer.scene.requestRenderMode = true;
@@ -441,7 +456,7 @@ export class CesiumController {
         const url = `https://www.n2yo.com/satellite/?s=${satnum}`;
         window.open(url, "_blank", "noopener");
       });
-      container.appendChild(infoButton);
+      //container.appendChild(infoButton);
     }
 
     const { frame } = this.viewer.infoBox;

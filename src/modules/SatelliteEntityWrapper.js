@@ -157,11 +157,11 @@ export class SatelliteEntityWrapper extends CesiumEntityWrapper {
     this.createCesiumSatelliteEntity("Ground track", "polyline", polyline);
   }
 
-  createCone(fov = 12) {
+  createCone(fov = 65) {
     const cone = new Cesium.Entity();
     cone.addProperty("conicSensor");
     cone.conicSensor = new CesiumSensorVolumes.ConicSensorGraphics({
-      radius: 1000000,
+      radius: 3000000,
       innerHalfAngle: Cesium.Math.toRadians(0),
       outerHalfAngle: Cesium.Math.toRadians(fov),
       lateralSurfaceMaterial: Cesium.Color.GOLD.withAlpha(0.15),
