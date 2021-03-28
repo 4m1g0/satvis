@@ -16,18 +16,20 @@ export class CesiumController {
 
     const urlParams = new URLSearchParams(window.location.search);
     const gsParam = urlParams.get('gs');
-    const gs = gsParam.split(",");
-    console.log(gs[0] + ' ' + gs[1])
+    if (gsParam) {
+      const gs = gsParam.split(",");
+      console.log(gs[0] + ' ' + gs[1])
 
-    var west = gs[1] - 10;
-    var south = gs[0] - 10;
-    var east = gs[1] + 10;
-    var north = gs[0] + 10;
+      var west = gs[1] - 10;
+      var south = gs[0] - 10;
+      var east = gs[1] + 10;
+      var north = gs[0] + 10;
 
-    var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
+      var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
 
-    Cesium.Camera.DEFAULT_VIEW_FACTOR = 1;
-    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = rectangle;
+      Cesium.Camera.DEFAULT_VIEW_FACTOR = 1;
+      Cesium.Camera.DEFAULT_VIEW_RECTANGLE = rectangle;
+    }
 
     this.viewer = new Cesium.Viewer("cesiumContainer", {
       animation: !this.minimalUI,

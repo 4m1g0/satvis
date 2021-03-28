@@ -33,7 +33,7 @@ cc.sats.addFromTleUrl("data/tle/norad/tle-new.txt", ["New"]);*/
 //cc.sats.addFromTleUrl("https://api.tinygs.com/v1/tles.txt", ["TinyGS"]);
 
 //cc.sats.enableTag("TinyGS");
-cc.sats.addFromTleUrl("data/tle/ext/move.txt", ["TinyGS"]);
+cc.sats.addFromTleUrl("https://api.tinygs.com/v1/tles.txt", ["TinyGS"]);
 if (cc.sats.enabledTags.length === 0) {
   cc.sats.enableTag("TinyGS");
 }
